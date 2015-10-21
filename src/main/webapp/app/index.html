@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script data-require="angular.js@1.4.7" data-server="1.4.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <link data-require="bootstrap-css@3.3.5" data-server="3.3.5" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="script.js"></script>
+</head>
+<body>
+<div ng-app="main" ng-controller="formCtrl" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <input class="form-control" ng-model="name" type="text"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Hello {{name}}!</h1>
+        </div>
+    </div>
+</div>
+</body>
+</html>
