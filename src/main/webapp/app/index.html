@@ -6,16 +6,23 @@
     <link rel="stylesheet" href="style.css"/>
     <script src="script.js"></script>
 </head>
+
 <body>
 <div ng-app="main" ng-controller="formCtrl" class="container">
-    <form class="well input-form">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" ng-model="data.email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+    <form class="well input-form" name="inputForm">
+        <div class="form-group has-feedback"
+             ng-class="{'has-success': inputForm.email.$dirty && inputForm.email.$valid, 'has-error': inputForm.email.$dirty && inputForm.email.$invalid}">
+            <label class="control-label" for="exampleInputEmail1">Email address</label>
+            <input type="email" name="email" ng-model="data.email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            <span class="glyphicon form-control-feedback" aria-hidden="true"
+                  ng-class="{'glyphicon-ok': inputForm.email.$dirty && inputForm.email.$valid, 'glyphicon-remove': inputForm.email.$dirty && inputForm.email.$invalid}"></span>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" ng-model="data.password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <div class="form-group has-feedback"
+             ng-class="{'has-success': inputForm.password.$dirty && inputForm.password.$valid, 'has-error': inputForm.password.$dirty && inputForm.password.$invalid}">
+            <label class="control-label" for="exampleInputPassword1">Password</label>
+            <input type="password" name="password" ng-model="data.password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"
+                  ng-class="{'glyphicon-ok': inputForm.password.$dirty && inputForm.password.$valid, 'glyphicon-remove': inputForm.password.$dirty && inputForm.password.$invalid}"></span>
         </div>
     </form>
     <p>{{data}}</p>
