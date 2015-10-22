@@ -24,11 +24,13 @@
             <span class="glyphicon form-control-feedback" aria-hidden="true"
                   ng-class="{'glyphicon-ok': inputForm.password.$dirty && inputForm.password.$valid, 'glyphicon-remove': inputForm.password.$dirty && inputForm.password.$invalid}"></span>
         </div>
+        <button type="button" class="btn btn-primary"
+                ng-disabled="inputForm.$invalid || inputForm.$pristine">Test button</button>
     </form>
     <p>{{data}}</p>
     <p>
         {{inputForm.email}}
-    <br/>
+        <br/>
         {{inputForm.password}}
     </p>
 </div>
