@@ -11,7 +11,7 @@
 
 <body>
 <div ng-app="main" ng-controller="formCtrl" class="container">
-    <form class="well input-form" name="inputForm">
+    <form class="well input-form" name="inputForm" ng-submit="submit()">
         <div class="form-group has-feedback"
              ng-class="{'has-success': inputForm.email.$dirty && inputForm.email.$valid, 'has-error': inputForm.email.$dirty && inputForm.email.$invalid}">
             <input type="email" name="email" ng-model="data.email" class="better-placeholder form-control" id="exampleInputEmail1" placeholder="Email">
@@ -24,7 +24,7 @@
             <span class="glyphicon form-control-feedback" aria-hidden="true"
                   ng-class="{'glyphicon-ok': inputForm.password.$dirty && inputForm.password.$valid, 'glyphicon-remove': inputForm.password.$dirty && inputForm.password.$invalid}"></span>
         </div>
-        <button type="button" class="btn btn-primary"
+        <button type="submit" class="btn btn-primary"
                 ng-disabled="inputForm.email.$invalid || inputForm.password.$invalid || inputForm.email.$pristine || inputForm.password.$pristine">Test button</button>
 
     </form>
