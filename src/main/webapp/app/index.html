@@ -25,7 +25,8 @@
                   ng-class="{'glyphicon-ok': inputForm.password.$dirty && inputForm.password.$valid, 'glyphicon-remove': inputForm.password.$dirty && inputForm.password.$invalid}"></span>
         </div>
         <button type="button" class="btn btn-primary"
-                ng-disabled="inputForm.$invalid || inputForm.$pristine">Test button</button>
+                ng-disabled="inputForm.email.$invalid || inputForm.password.$invalid || inputForm.email.$pristine || inputForm.password.$pristine">Test button</button>
+
     </form>
     <p>{{data}}</p>
     <p>
