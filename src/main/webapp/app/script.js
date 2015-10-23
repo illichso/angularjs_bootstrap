@@ -32,4 +32,7 @@ module.controller("formCtrl", ['$scope', '$http', function($scope, $http){
     $scope.submit = function(){
         alert('Form Submitted!!\nEmail: ' + $scope.data.email + '\nPassword: ' + $scope.data.password);
     };
+
+    $http.post('/login', {}).success(function(data){console.log('failure', data)});
+    $http.post('/login', {email:'test@test.com', password: 'test'}).success(function(data){console.log('success', data)});
 }]);
