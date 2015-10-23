@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<div ng-app="main" ng-controller="formCtrl" class="container">
+<div ng-app="MainCtrl" ng-controller="formCtrl" class="container">
     <form class="well input-form" name="inputForm" ng-submit="submit()">
         <div class="form-group has-feedback"
              ng-class="{'has-success': inputForm.email.$dirty && inputForm.email.$valid, 'has-error': inputForm.email.$dirty && inputForm.email.$invalid}">
