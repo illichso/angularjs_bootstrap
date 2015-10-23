@@ -26,10 +26,10 @@ var module = angular.module('demoApp', ['ngMockE2E']).config(function($provide){
 
 module = angular.module("MainCtrl",['angularBetterPlaceholder']);
 
-module.controller("formCtrl", function($scope){
+module.controller("formCtrl", ['$scope', '$http', function($scope, $http){
     $scope.data = {};
 
     $scope.submit = function(){
         alert('Form Submitted!!\nEmail: ' + $scope.data.email + '\nPassword: ' + $scope.data.password);
     };
-});
+}]);
