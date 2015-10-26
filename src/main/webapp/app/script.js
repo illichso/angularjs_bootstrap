@@ -1,17 +1,17 @@
 var module = angular.module('demoApp', ['ngMockE2E']).config(function($provide){
     $provide.decorator('$httpBacked', function($delegate){
         var proxy = function(method, url, data, callback, header){
-            var intercaptor = function(){
-                var _this = this;
-                _arguments = arguments;
+            var interceptor = function(){
+                var _this = this,
+                    _arguments = arguments;
                 setTimeout(function(){
-                    callbacl.apply(_this, _arguments);
+                    callback.apply(_this, _arguments);
                 }, 700);
             };
-            return $delegate.call(this, method, url, data, intercaptor, headers);
+            return $delegate.call(this, method, url, data, interceptor, headers);
         };
         for(var key in $delegate){
-            proxy[key] = $delefgate[key];
+            proxy[key] = $delegate[key];
         }
         return proxy;
     });
@@ -20,7 +20,7 @@ var module = angular.module('demoApp', ['ngMockE2E']).config(function($provide){
         var details = angular.fromJson(data);
         if(details.email && details.email === 'test@test.com' && details.password && details.password === "test")
             return [200, {loggedIn: true, userid: 'testid'}, {}];
-        else return[200, {loggedIn: false}, {}];
+        else return [200, {loggedIn: false}, {}];
     });
 });
 
@@ -28,11 +28,9 @@ module = angular.module("MainCtrl",['angularBetterPlaceholder']);
 
 module.controller("formCtrl", ['$scope', '$http', function($scope, $http){
     $scope.data = {};
-
     $scope.submit = function(){
         alert('Form Submitted!!\nEmail: ' + $scope.data.email + '\nPassword: ' + $scope.data.password);
     };
 
-    $http.post('/login', {}).success(function(data){console.log('failure', data)});
-    $http.post('/login', {email:'test@test.com', password: 'test'}).success(function(data){console.log('success', data)});
+    $http.post('/login', $scope.data).success(function(data){console.log('Form success', data)});
 }]);
