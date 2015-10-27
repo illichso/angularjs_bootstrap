@@ -13,6 +13,8 @@
 <body ng-app="demoApp" ng-controller="MainCtrl">
 <div class="container">
     <form class="well input-form" name="inputForm" ng-submit="submit()">
+        <div class="alert-success" ng-show="postResult == 1"><b>Success!</b> You loged in correctly</div>
+        <div class="alert-danger" ng-show="postResult == 2"><b>Error!</b> Wrong email and password</div>
         <div class="form-group has-feedback"
              ng-class="{'has-success': inputForm.email.$dirty && inputForm.email.$valid, 'has-error': inputForm.email.$dirty && inputForm.email.$invalid}">
             <input type="email" name="email" ng-model="data.email" class="better-placeholder form-control" id="exampleInputEmail1" placeholder="Email">
@@ -27,6 +29,7 @@
         </div>
         <button type="submit" class="btn btn-primary"
                 ng-disabled="loading || inputForm.email.$invalid || inputForm.password.$invalid || inputForm.email.$pristine || inputForm.password.$pristine">Test button</button>
+    <p ng-show="loading"><span class="glyphicon glyphicon-refresh"></span>Processing...</p>
     </form>
     <p>{{data}}</p>
     <p>
