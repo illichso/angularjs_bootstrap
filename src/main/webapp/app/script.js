@@ -48,27 +48,38 @@
             $httpBackend.whenGET(/.*/i).passThrough();
         });
 
-    module.controller("MainCtrl", ['$scope', '$http', function($scope, $http) {}]);
-    module.controller("UserCtrl", ['$scope', '$http', '$location', function($scope, $http, $location) {
-        $scope.data = {};
-        $scope.loading = false;
-        $scope.postResult = 0;
-
-        $scope.submit = function () {
-            $scope.loading = true;
-            $http.post('/login', $scope.data).success(function (data) {
-                console.log('Form success', data);
-                if (data.loggedIn) {
-                    $scope.postResult = 1;
-                    $location.url('/report');
-                } else {
-                    $scope.postResult = 2;
-                }
-                $scope.loading = false;
-            });
+    module.factory('UserData', function() {
+        var data = {
+            email: '',
+            password: ''
         };
-    }]);
-    module.controller('ReportCtrl', ['$scope', '$http', 'reportdata', function($scope, $http, reportdata){
-        $scope.data = reportdata;
-    }]);
+        return data;
+    });
+
+    module.controller("MainCtrl", ['$scope', '$http', function($scope, $http) {}]);
+    module.controller("UserCtrl", ['$scope', '$http', '$location', 'UserData',
+        function($scope, $http, $location, UserData) {
+            $scope.data = UserData;
+            $scope.loading = false;
+            $scope.postResult = 0;
+
+            $scope.submit = function () {
+                $scope.loading = true;
+                $http.post('/login', $scope.data).success(function (data) {
+                    console.log('Form success', data);
+                    if (data.loggedIn) {
+                        $scope.postResult = 1;
+                        $location.url('/report');
+                    } else {
+                        $scope.postResult = 2;
+                    }
+                    $scope.loading = false;
+                });
+            };
+        }]);
+    module.controller('ReportCtrl', ['$scope', '$http', 'reportdata', 'UserData',
+        function($scope, $http, reportdata, UserData){
+            $scope.data = reportdata;
+            $scope.userdata = UserData;
+        }]);
 })();
