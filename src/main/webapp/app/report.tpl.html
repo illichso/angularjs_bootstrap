@@ -6,6 +6,8 @@
             <th>id</th>
             <th>isActive</th>
             <th>name</th>
+            <th>balance</th>
+            <th>date of birth</th>
         </tr>
 
         </thead>
@@ -14,6 +16,8 @@
             <td>{{reportRow._id}}</td>
             <td>{{reportRow.isActive}}</td>
             <td>{{reportRow.name}}</td>
+            <td>{{reportRow.balance | currency}}</td>
+            <td>{{reportRow.dob | date:'yyyy-MM-dd'}}</td>
         </tr>
         </tbody>
     </table>

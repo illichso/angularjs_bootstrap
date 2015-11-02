@@ -1,10 +1,14 @@
 [{
   "_id": "kjhkj1h2331233",
   "isActive": true,
-  "name": "Cooper Hayden"
+  "name": "Cooper Hayden",
+  "balance": "3453.09",
+  "dob": "2000-12-05"
 },
 {
 "_id": "egedfg546457urty",
 "isActive": false,
-"name": "Gillgant Vincent"
+"name": "Gillgant Vincent",
+  "balance": "4565.78",
+  "dob": "1995-04-02"
 }]
