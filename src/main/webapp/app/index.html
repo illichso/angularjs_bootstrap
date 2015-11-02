@@ -6,7 +6,9 @@
         <script data-require="angular.js@1.4.7" data-server="1.4.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
         <script data-require="angular.js@1.4.7" data-server="1.4.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
         <script data-require="angular.js@1.4.7" data-server="1.4.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-mocks.js"></script>
+        <script data-require="angular.js@1.4.7" data-server="1.4.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
         <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="animate.css"/>
         <link rel="stylesheet" href="node_modules/better-placeholders/angular-better-placeholders.css"/>
         <script src="script.js"></script>
         <script src="node_modules/better-placeholders/angular-better-placeholders.js"></script>
@@ -14,7 +16,7 @@
     <body ng-app="demoApp">
         <a href="#/login">Login</a>
         <a href="#/report">Report</a>
-        <div class="container" ng-view>
+        <div class="container" ng-class="pageclass" ng-view>
         </div>
     </body>
 </html>

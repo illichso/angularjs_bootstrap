@@ -1,5 +1,5 @@
 (function(){
-    var module = angular.module('demoApp', ['angularBetterPlaceholder', 'ngMockE2E', 'ngRoute'])
+    var module = angular.module('demoApp', ['angularBetterPlaceholder', 'ngMockE2E', 'ngRoute', 'ngAnimate'])
         .config(['$provide', '$routeProvider', '$locationProvider', function($provide, $routeProvider, $locationProvider){
             $provide.decorator('$httpBackend', function($delegate){
                 var proxy = function(method, url, data, callback, headers){
@@ -59,6 +59,7 @@
     module.controller("MainCtrl", ['$scope', '$http', function($scope, $http) {}]);
     module.controller("UserCtrl", ['$scope', '$http', '$location', 'UserData',
         function($scope, $http, $location, UserData) {
+            $scope.pageclass = "login";
             $scope.data = UserData;
             $scope.loading = false;
             $scope.postResult = 0;
@@ -79,6 +80,7 @@
         }]);
     module.controller('ReportCtrl', ['$scope', '$http', 'reportdata', 'UserData',
         function($scope, $http, reportdata, UserData){
+            $scope.pageclass = "report";
             $scope.data = reportdata;
             $scope.userdata = UserData;
         }]);
