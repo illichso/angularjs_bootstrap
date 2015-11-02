@@ -3,16 +3,17 @@
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
-            <th>id</th>
-            <th>isActive</th>
-            <th>name</th>
-            <th>balance</th>
-            <th>date of birth</th>
+            <!--<span ng-show="predicate=='name'" class="glyphicon pull-right" ng-class=""/>-->
+            <th ng-click="orderBy('_id')">id</th>
+            <th ng-click="orderBy('isActive')">isActive</th>
+            <th ng-click="orderBy('name')">name</th>
+            <th ng-click="orderBy('balance')">balance</th>
+            <th ng-click="orderBy('dob')">date of birth</th>
         </tr>
 
         </thead>
         <tbody>
-        <tr ng-repeat="reportRow in data">
+        <tr ng-repeat="reportRow in data | orderBy:predicate:reverse">
             <td>{{reportRow._id}}</td>
             <td>{{reportRow.isActive}}</td>
             <td>{{reportRow.name}}</td>

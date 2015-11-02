@@ -83,5 +83,17 @@
             $scope.pageclass = "report";
             $scope.data = reportdata;
             $scope.userdata = UserData;
+
+            $scope.predicate = 'name';
+            $scope.reverse = false;
+
+            $scope.orderBy = function(predicateName){
+                if(predicateName === $scope.predicate){
+                    $scope.reverse = !$scope.reverse;
+                }else{
+                    $scope.predicate = predicateName;
+                    $scope.reverse = false;
+                }
+            }
         }]);
 })();
