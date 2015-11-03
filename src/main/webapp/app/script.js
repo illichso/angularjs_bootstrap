@@ -92,7 +92,7 @@
                     $scope.reverse = !$scope.reverse;
                 }else{
                     $scope.predicate = predicateName;
-                    $scope.reverse = false;
+                    $scope.reverse = false  ;
                 }
             }
         }]);
