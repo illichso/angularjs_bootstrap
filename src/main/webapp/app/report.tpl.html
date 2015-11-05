@@ -4,10 +4,13 @@
         <label>Name Filter:</label>
         <input class="form-control" type="text" ng-model="filter.name"/>
     </div>
+    <button type="button" class="btn btn-primary pull-right" ng-click="sendEmails()">Send Emails</button>
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
+            <th></th>
             <th ng-click="orderBy('_id')">id<span ng-show="predicate=='id'" class="glyphicon pull-right" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"></span></th>
+            <th ng-click="orderBy('email')">email<span ng-show="predicate=='email'" class="glyphicon pull-right" ng-class="{'glyphicon-chevron-up': !reverse, 'glyphicon-chevron-down': reverse}"></span></th>
             <th ng-click="orderBy('isActive')">isActive<span ng-show="predicate=='isActive'" class="glyphicon pull-right" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"></span></th>
             <th ng-click="orderBy('name')">name<span ng-show="predicate=='name'" class="glyphicon pull-right" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"></span></th>
             <th ng-click="orderBy('balance')">balance<span ng-show="predicate=='balance'" class="glyphicon pull-right" ng-class="{'glyphicon-chevron-up': !reverse, 'glyphicon-chevron-down': reverse}"></span></th>
@@ -17,7 +20,9 @@
         </thead>
         <tbody>
         <tr ng-repeat="reportRow in data | filter:filter | orderBy:predicate:reverse">
+            <td><input type="checkbox" ng-model="reportRow.selected"/></td>
             <td>{{reportRow._id}}</td>
+            <td>{{reportRow.email}}</td>
             <td>{{reportRow.isActive}}</td>
             <td>{{reportRow.name}}</td>
             <td>{{reportRow.balance | currency}}</td>

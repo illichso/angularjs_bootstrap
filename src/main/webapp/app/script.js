@@ -94,6 +94,18 @@
                     $scope.predicate = predicateName;
                     $scope.reverse = false  ;
                 }
-            }
+            };
+
+            $scope.sendEmails = function(){
+                var emails = [];
+                for(var i=0; i<$scope.data.length; i++){
+                    if($scope.data[i].selected){
+                        emails.push($scope.data[i].email);
+                    }
+                }
+                if(emails.length>0){
+                    alert('Emails sent to: ' + emails.join(', '));
+                }
+            };
         }]);
 })();
