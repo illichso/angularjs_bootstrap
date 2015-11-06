@@ -1,11 +1,12 @@
-[{
-  "_id": "kjhkj1h2331233",
-  "email": "cooper@email.com",
-  "isActive": true,
-  "name": "Cooper Hayden",
-  "balance": "3453.09",
-  "dob": "2000-12-05"
-},
+[
+  {
+    "_id": "kjhkj1h2331233",
+    "email": "cooper@email.com",
+    "isActive": true,
+    "name": "Cooper Hayden",
+    "balance": "3453.09",
+    "dob": "2000-12-05"
+  },
   {
     "_id": "egedfg546457urty",
     "email": "gillgant@email.com",
@@ -14,4 +15,14 @@
     "balance": "4565.78",
     "dob": "1995-04-02"
 
-  }]
+  },
+  {
+    "_id": "sdfsdfsd78sdfkjkh",
+    "email": "johnoson@email.com",
+    "isActive": true,
+    "name": "Mark JohnSon",
+    "balance": "8468.67",
+    "dob": "1993-04-02"
+
+  }
+]
