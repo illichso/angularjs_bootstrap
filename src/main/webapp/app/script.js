@@ -107,5 +107,15 @@
                     alert('Emails sent to: ' + emails.join(', '));
                 }
             };
+
+            $scope.deleteRow = function(row){
+                var i;
+                for(i = 0; i<$scope.data.length; i++){
+                    if($scope.data[i] == row){
+                        break;
+                    }
+                }
+                $scope.data.splice(i, 1);
+            };
         }]);
 })();

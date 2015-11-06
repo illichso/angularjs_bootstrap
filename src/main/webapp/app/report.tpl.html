@@ -27,6 +27,7 @@
             <td>{{reportRow.name}}</td>
             <td>{{reportRow.balance | currency}}</td>
             <td>{{reportRow.dob | date:'yyyy-MM-dd'}}</td>
+            <td><button type="button" class="btn btn-danger btn-sm" ng-click="deleteRow(reportRow)">Delete</button></td>
         </tr>
         </tbody>
     </table>
