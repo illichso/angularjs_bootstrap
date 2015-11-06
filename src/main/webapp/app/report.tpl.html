@@ -27,6 +27,7 @@
             <td>{{reportRow.name}}</td>
             <td>{{reportRow.balance | currency}}</td>
             <td>{{reportRow.dob | date:'yyyy-MM-dd'}}</td>
+            <td><span class="label margin-sm" ng-class="{'label-primary': $even, 'label-info': $odd}" ng-repeat="tag in reportRow.tags">{{tag}}</span></td>
             <td><button type="button" class="btn btn-danger btn-sm" ng-click="deleteRow(reportRow)">Delete</button></td>
         </tr>
         </tbody>
