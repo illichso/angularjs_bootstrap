@@ -3,18 +3,20 @@
     <div class="alert-danger" ng-show="postResult == 2"><b>Error!</b> Wrong email and password</div>
     <div class="form-group has-feedback"
          ng-class="{'has-success': inputForm.email.$dirty && inputForm.email.$valid, 'has-error': inputForm.email.$dirty && inputForm.email.$invalid}">
-        <input type="email" name="email" ng-model="data.email" class="better-placeholder form-control" id="exampleInputEmail1" placeholder="Email">
+        <input type="email" name="email" ng-model="data.email" class="better-placeholder form-control" id="exampleInputEmail1" placeholder="Enter email" bs-tooltip="'Enter your email address'" data-trigger="focus">
             <span class="glyphicon form-control-feedback" aria-hidden="true"
                   ng-class="{'glyphicon-ok': inputForm.email.$dirty && inputForm.email.$valid, 'glyphicon-remove': inputForm.email.$dirty && inputForm.email.$invalid}"></span>
     </div>
     <div class="form-group has-feedback"
          ng-class="{'has-success': inputForm.password.$dirty && inputForm.password.$valid, 'has-error': inputForm.password.$dirty && inputForm.password.$invalid}">
-        <input type="password" name="password" ng-model="data.password" class="better-placeholder form-control" id="exampleInputPassword1" placeholder="Password" required>
+        <input type="password" name="password" ng-model="data.password" class="better-placeholder form-control" id="exampleInputPassword1" placeholder="Password" bs-tooltip="'Enter your password'" data-trigger="focus" required>
             <span class="glyphicon form-control-feedback" aria-hidden="true"
                   ng-class="{'glyphicon-ok': inputForm.password.$dirty && inputForm.password.$valid, 'glyphicon-remove': inputForm.password.$dirty && inputForm.password.$invalid}"></span>
     </div>
-    <button type="submit" class="btn btn-primary"
-            ng-disabled="loading || inputForm.email.$invalid || inputForm.password.$invalid || inputForm.email.$pristine || inputForm.password.$pristine">Test button</button>
+    <div >
+        <button type="submit" class="btn btn-primary"
+                ng-disabled="loading || inputForm.email.$invalid || inputForm.password.$invalid || inputForm.email.$pristine || inputForm.password.$pristine">Test button</button>
+    </div>
     <p ng-show="loading"><span class="glyphicon glyphicon-refresh"></span>Processing...</p>
 </form>
 <p>{{data}}</p>
