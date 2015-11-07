@@ -78,8 +78,8 @@
                 });
             };
         }]);
-    module.controller('ReportCtrl', ['$scope', '$http', 'reportdata', 'UserData',
-        function($scope, $http, reportdata, UserData){
+    module.controller('ReportCtrl', ['$scope', '$http', 'reportdata', 'UserData', '$log',
+        function($scope, $http, reportdata, UserData, $log){
             $scope.pageclass = "report";
             $scope.data = reportdata;
             $scope.userdata = UserData;
@@ -100,6 +100,7 @@
                 var emails = [];
                 for(var i=0; i<$scope.data.length; i++){
                     if($scope.data[i].selected){
+                        $log.info($scope.data[i].email);
                         emails.push($scope.data[i].email);
                     }
                 }
