@@ -1,5 +1,5 @@
 (function(){
-    var module = angular.module('demoApp', ['angularBetterPlaceholder', 'ngMockE2E', 'ngRoute', 'ngAnimate'])
+    var module = angular.module('demoApp', ['angularBetterPlaceholder', 'ngMockE2E', 'ngRoute', 'ngAnimate', 'mgcrea.ngStrap'])
         .config(['$provide', '$routeProvider', '$locationProvider', function($provide, $routeProvider, $locationProvider){
             $provide.decorator('$httpBackend', function($delegate){
                 var proxy = function(method, url, data, callback, headers){
