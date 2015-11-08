@@ -11,7 +11,7 @@
          ng-class="{'has-success': inputForm.password.$dirty && inputForm.password.$valid, 'has-error': inputForm.password.$dirty && inputForm.password.$invalid}">
         <input type="password" name="password" ng-model="data.password" class="better-placeholder form-control" id="exampleInputPassword1" placeholder="Password" bs-tooltip="'Enter your password'" data-trigger="click" delay="0" required>
             <span class="glyphicon form-control-feedback" aria-hidden="true"
-                  ng-class="{'glyphicon-ok': inputForm.password.$dirty && inputForm.password.$valid, 'glyphicon-remove': inputForm.password.$dirty && inputForm.password.$invalid}"></span>
+                  ng-   class="{'glyphicon-ok': inputForm.password.$dirty && inputForm.password.$valid, 'glyphicon-remove': inputForm.password.$dirty && inputForm.password.$invalid}"></span>
     </div>
     <div bs-tooltip="'Please complete all fields with valid data to submit'" style="display: inline-block;" data-placement="right" bs-enabled="inputForm.$invalid || inputForm.$pristine">
         <button type="submit" class="btn btn-primary"
@@ -19,23 +19,20 @@
     </div>
     <p ng-show="loading"><span class="glyphicon glyphicon-refresh"></span>Processing...</p>
 </form>
-<p>{{data}}</p>
-<p>
-    {{inputForm.email}}
     <br/>
-    ===============
-    <br/>
-    {{inputForm.password}}
-    <br/>
-    ===============
-    <br/>
-    {{inputForm}}
-    <br/>
-    ==============
+    inputForm.$invalid
     <br/>
     {{inputForm.$invalid}}
     <br/>
     ==============
     <br/>
+    inputForm.$pristine
+    <br/>
     {{inputForm.password.$pristine}}
+    <br/>
+    ==============
+    <br/>
+    inputForm.$invalid || inputForm.$pristine
+    <br/>
+    {{inputForm.$invalid || inputForm.$pristine}}
 </p>

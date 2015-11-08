@@ -1,52 +1,52 @@
-(function(){
-    var module = angular.module('demoApp', ['angularBetterPlaceholder', 'ngMockE2E', 'ngRoute', 'ngAnimate', 'mgcrea.ngStrap'])
-        .config(['$provide', '$routeProvider', '$locationProvider', function($provide, $routeProvider, $locationProvider){
-            $provide.decorator('$httpBackend', function($delegate){
-                var proxy = function(method, url, data, callback, headers){
-                    var interceptor = function(){
-                        var _this = this,
-                            _arguments = arguments;
-                        setTimeout(function(){
-                            callback.apply(_this, _arguments);
-                        }, 700);
-                    };
-                    return $delegate.call(this, method, url, data, interceptor, headers);
+var module = angular.module('demoApp', ['angularBetterPlaceholder', 'ngMockE2E', 'ngRoute', 'ngAnimate', 'mgcrea.ngStrap', 'mgcrea.ngStrap.helpers.dimensions'])
+    .config(['$provide', '$routeProvider', '$locationProvider', function($provide, $routeProvider, $locationProvider){
+        $provide.decorator('$httpBackend', function($delegate){
+            var proxy = function(method, url, data, callback, headers){
+                var interceptor = function(){
+                    var _this = this,
+                        _arguments = arguments;
+                    setTimeout(function(){
+                        callback.apply(_this, _arguments);
+                    }, 700);
                 };
-                for(var key in $delegate){
-                    proxy[key] = $delegate[key];
-                }
-                return proxy;
-            });
-            $routeProvider
-                .when('/login', {
-                    templateUrl: 'user.tpl.html',
-                    controller: 'UserCtrl'
-                })
-                .when('/report', {
-                    templateUrl: 'report.tpl.html',
-                    controller: 'ReportCtrl',
-                    resolve: {
-                        reportdata: ['$http', function($http){
-                            return $http.get('report.json').then(function(data){
-                                return data.data;
-                            });
-                        }]
-                    }
-                })
-                .otherwise({redirectTo: '/login'});
-            $locationProvider.html5Mode([true]);
-        }]).run(function($httpBackend){
-            $httpBackend.whenPOST('/login').respond(function(method, url, data){
-                var details = angular.fromJson(data);
-                if(details.email && details.email === 'test@test.com' && details.password && details.password === "test"){
-                    return [200, {loggedIn: true, userid: 'testid'}, {}];
-
-                }else{
-                    return [200, {loggedIn: false}, {}];
-                }
-            });
-            $httpBackend.whenGET(/.*/i).passThrough();
+                return $delegate.call(this, method, url, data, interceptor, headers);
+            };
+            for(var key in $delegate){
+                proxy[key] = $delegate[key];
+            }
+            return proxy;
         });
+        $routeProvider
+            .when('/login', {
+                templateUrl: 'user.tpl.html',
+                controller: 'UserCtrl'
+            })
+            .when('/report', {
+                templateUrl: 'report.tpl.html',
+                controller: 'ReportCtrl',
+                resolve: {
+                    reportdata: ['$http', function($http){
+                        return $http.get('report.json').then(function(data){
+                            return data.data;
+                        });
+                    }]
+                }
+            })
+            .otherwise({redirectTo: '/login'});
+        $locationProvider.html5Mode([true]);
+    }]).run(function($httpBackend){
+        $httpBackend.whenPOST('/login').respond(function(method, url, data){
+            var details = angular.fromJson(data);
+            if(details.email && details.email === 'test@test.com' && details.password && details.password === "test"){
+                return [200, {loggedIn: true, userid: 'testid'}, {}];
+
+            }else{
+                return [200, {loggedIn: false}, {}];
+            }
+        });
+        $httpBackend.whenGET(/.*/i).passThrough();
+    });
+(function(){
 
     module.factory('UserData', function() {
         var data = {
