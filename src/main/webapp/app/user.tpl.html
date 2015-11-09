@@ -13,8 +13,8 @@
             <span class="glyphicon form-control-feedback" aria-hidden="true"
                   ng-   class="{'glyphicon-ok': inputForm.password.$dirty && inputForm.password.$valid, 'glyphicon-remove': inputForm.password.$dirty && inputForm.password.$invalid}"></span>
     </div>
-    <div bs-tooltip="'Please complete all fields with valid data to submit'" style="display: inline-block;" data-placement="right" bs-enabled="inputForm.$invalid || inputForm.$pristine">
-        <button type="submit" class="btn btn-primary"
+    <div bs-tooltip="'Please complete all fields with valid data to submit'" style="display: inline-block;" data-placement="right" bs-enabled="tooltip.checked">
+        <button type="submit" class="btn btn-primary"ª
                 ng-disabled="loading || inputForm.email.$invalid || inputForm.password.$invalid || inputForm.email.$pristine || inputForm.password.$pristine">Test button</button>
     </div>
     <p ng-show="loading"><span class="glyphicon glyphicon-refresh"></span>Processing...</p>

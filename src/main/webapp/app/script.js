@@ -63,6 +63,9 @@ var module = angular.module('demoApp', ['angularBetterPlaceholder', 'ngMockE2E',
             $scope.data = UserData;
             $scope.loading = false;
             $scope.postResult = 0;
+            $scope.tooltip = {
+                "checked": true
+            };
 
             $scope.submit = function () {
                 $scope.loading = true;
